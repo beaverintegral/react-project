@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import Star from './Star'
 
-const Rating = () => {
-  const [userRating, setUserRating] = useState(0)
+const Rating = ({ rate = 0 }) => {
+  const [userRating, setUserRating] = useState(rate)
   const [userHover, setUserHover] = useState(0)
   const [userSubmit, setUserSubmit] = useState(false)
   const [buttonText, setButtonText] = useState('Rate')

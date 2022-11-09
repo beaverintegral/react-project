@@ -5,13 +5,19 @@ class RatingClass extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      userRating: 0,
+      userRating: null,
       userHover: 0,
       userSubmit: false,
       buttonText: 'Rate',
     }
     this.setUserRating = this.setUserRating.bind(this)
     this.setUserHover = this.setUserHover.bind(this)
+  }
+
+  setInitialRating = (rate) => {
+    this.setState({
+      userRating: rate,
+    })
   }
 
   setUserRating(x) {
@@ -23,6 +29,8 @@ class RatingClass extends PureComponent {
   }
 
   render() {
+    this.setInitialRating(0)
+
     return (
       <div className="rating-wrapper">
         {[1, 2, 3, 4, 5].map((index) => (
@@ -40,6 +48,7 @@ class RatingClass extends PureComponent {
             submit={this.state.userSubmit}
           />
         ))}
+
         <button
           className={`${
             this.state.userSubmit
